@@ -1,7 +1,10 @@
 import { NavLink } from "@remix-run/react";
 import MobileMenu from "./MobileMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "~/contexts/LanguageContext";
 
 export default function Navbar() {
+  const { t } = useLanguage();
   return (
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
@@ -17,7 +20,7 @@ export default function Navbar() {
               isActive ? "text-orange-400 font-medium" : "hover:text-orange-300"
             }
           >
-            首页
+            {t('home')}
           </NavLink>
           <NavLink 
             to="/services" 
@@ -25,7 +28,7 @@ export default function Navbar() {
               isActive ? "text-orange-400 font-medium" : "hover:text-orange-300"
             }
           >
-            服务项目
+            {t('services')}
           </NavLink>
           <NavLink 
             to="/stylists" 
@@ -33,7 +36,7 @@ export default function Navbar() {
               isActive ? "text-orange-400 font-medium" : "hover:text-orange-300"
             }
           >
-            发型师
+            {t('stylists')}
           </NavLink>
           <NavLink 
             to="/appointment" 
@@ -41,7 +44,7 @@ export default function Navbar() {
               isActive ? "text-orange-400 font-medium" : "hover:text-orange-300"
             }
           >
-            预约服务
+            {t('appointment')}
           </NavLink>
           <NavLink 
             to="/contact" 
@@ -49,12 +52,15 @@ export default function Navbar() {
               isActive ? "text-orange-400 font-medium" : "hover:text-orange-300"
             }
           >
-            联系我们
+            {t('contact')}
           </NavLink>
         </div>
         
         {/* 移动端菜单 */}
-        <MobileMenu />
+        <div className="flex items-center space-x-4">
+          <LanguageSwitcher />
+          <MobileMenu />
+        </div>
       </div>
     </nav>
   );

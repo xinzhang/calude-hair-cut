@@ -1,24 +1,28 @@
+import { useLanguage } from "~/contexts/LanguageContext";
+
 export default function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">StyleCuts</h3>
-            <p className="mb-4">提供专业的理发和造型服务，让您焕然一新。</p>
-            <p className="mb-2">电话: 010-12345678</p>
-            <p>邮箱: info@stylecuts.com</p>
+            <p className="mb-4">{t('heroSubtitle')}</p>
+            <p className="mb-2">{t('phoneNumber')}: 010-12345678</p>
+            <p>{t('emailAddress')}: info@stylecuts.com</p>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">营业时间</h3>
-            <p className="mb-2">周一至周五: 10:00 - 20:00</p>
-            <p className="mb-2">周六: 10:00 - 22:00</p>
-            <p>周日: 12:00 - 18:00</p>
+            <h3 className="text-xl font-bold mb-4">{t('businessHours')}</h3>
+            <p className="mb-2">{t('weekdays')}: 10:00 - 20:00</p>
+            <p className="mb-2">{t('saturday')}: 10:00 - 22:00</p>
+            <p>{t('sunday')}: 12:00 - 18:00</p>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">关注我们</h3>
+            <h3 className="text-xl font-bold mb-4">{t('followUs')}</h3>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-orange-300">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -39,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} StyleCuts. 保留所有权利。</p>
+          <p>&copy; {new Date().getFullYear()} StyleCuts. {t('rightsReserved')}</p>
         </div>
       </div>
     </footer>

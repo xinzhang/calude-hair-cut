@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { NavLink } from "@remix-run/react";
+import { useLanguage } from "~/contexts/LanguageContext";
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,7 +18,7 @@ export default function MobileMenu() {
         className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white"
       >
         <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <title>菜单</title>
+          <title>{t('Menu')}</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
         </svg>
       </button>
@@ -34,7 +36,7 @@ export default function MobileMenu() {
                   : "text-white px-4 py-3 border-b border-gray-700 hover:text-orange-300"
               }
             >
-              首页
+              {t('home')}
             </NavLink>
             <NavLink 
               to="/services" 
@@ -45,7 +47,7 @@ export default function MobileMenu() {
                   : "text-white px-4 py-3 border-b border-gray-700 hover:text-orange-300"
               }
             >
-              服务项目
+              {t('services')}
             </NavLink>
             <NavLink 
               to="/stylists" 
@@ -56,7 +58,7 @@ export default function MobileMenu() {
                   : "text-white px-4 py-3 border-b border-gray-700 hover:text-orange-300"
               }
             >
-              发型师
+              {t('stylists')}
             </NavLink>
             <NavLink 
               to="/appointment" 
@@ -67,7 +69,7 @@ export default function MobileMenu() {
                   : "text-white px-4 py-3 border-b border-gray-700 hover:text-orange-300"
               }
             >
-              预约服务
+              {t('appointment')}
             </NavLink>
             <NavLink 
               to="/contact" 
@@ -78,7 +80,7 @@ export default function MobileMenu() {
                   : "text-white px-4 py-3 hover:text-orange-300"
               }
             >
-              联系我们
+              {t('contact')}
             </NavLink>
           </div>
         </div>
